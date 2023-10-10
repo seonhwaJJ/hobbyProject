@@ -21,17 +21,19 @@ console.log('정답',randomNumber);
 
 playBtn.addEventListener('click', gamePlay);
 resetBtn.addEventListener('click',gameReset);
-
+userInput.addEventListener('focus', function(){
+    userInput.value = "";
+})
 function gamePlay(){
     let inputNum = userInput.value;
 
     if (inputNum > 100 || inputNum < 0) {
-        resultTxt.textContent = "1~100 사이의 숫자를 입력해주세요.";
+        resultTxt.textContent = "1부터 100 사이의 숫자를 입력 해주세요";
         return;
     }
 
     if(numberArray.includes(inputNum)){
-        resultTxt.textContent = "이미 입력하셨어요";
+        resultTxt.textContent = "이미 입력한 숫자입니다. 다른 숫자를 입력해주세요";
         return;
     }
 
@@ -59,6 +61,7 @@ function gamePlay(){
 }
 function gameReset(){
     playBtn.disabled = false;
+    userInput.value = "";
     gameOver = false;
     chance = 5;
     resultTxt.textContent = "Up Down 번호 입력";
