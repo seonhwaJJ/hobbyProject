@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+input, button {
+    cursor:pointer;
+}
+p {
+    margin: 0;
+}
+.wrap {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 80%;
+}
+.todoHeader {
+    width: 100%;
+    height: 38px;
+    display: flex;
+    gap: 10px;
+}
+#task-input {
+    width: calc(100% - 60px);
+    border: 0px;
+    border-bottom: 1px solid #ddd;
+}
+#add-button {
+    min-width: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 0px;
+    background-color: #ddd;
+}
+.tabHead {
+    display: flex;
+    justify-content: center;
+    height: 24px;
+    margin-top: 10px;
+}
+.tabHead span {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+.tabPanel {
+    margin-top: 10px;
+}
+#task-area {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.todoList {
+    list-style: none;
+    display: flex;
+}
+.todoCheck {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todoDone {
+    background: none;
+    border: none;
+}
+.todoDelete {
+    flex: 0;
+    background: none;
+    border: none;
+    color: #ddd;
+}
+.is_done > span {
+    position: relative;
+    height: 100%;
+    display: inline-block;
+}
+.is_done > span:before {
+    content:'';
+    width: 100%;
+    height: 2px;
+    background-color: #ddd;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
