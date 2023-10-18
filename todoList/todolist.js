@@ -34,7 +34,7 @@ function filter(event){
     mode = event.target.id;
     for (let i = 0; i <tabs.length; i++) {
         tabs[i].classList.remove("active");
-    }
+    } 
     event.target.classList.add("active");
     render();
 }
