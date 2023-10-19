@@ -9,12 +9,13 @@
 <body>
     <div class="wrap">
         <div class="container">
-            <div class="todoHeader">
-                <input type="text" id="task-input">
-                <button type="button" id="add-button">추가</button>
-            </div>
-
-            <section class="tabWrap">
+            <h4 class="nowDate">
+                <span class="dayNum"></span>
+                <span class="month"></span>
+                <span class="year"></span>
+                <span class="dayText"></span>
+            </h4>
+            <section class="tabWrap">  
                 <div class="tabHead">
                     <span id="all">모두</span>
                     <span id="ing">진행 중</span>
@@ -25,6 +26,13 @@
                     </ul>
                 </div>
             </section>
+
+            <div class="todoHeader">
+                <input type="text" id="task-input">
+                <button type="button" id="add-button">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
         </div>
     </div>
 </body>

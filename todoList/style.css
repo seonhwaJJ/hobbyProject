@@ -16,9 +16,12 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f0efe9;
 }
 .container {
     width: 80%;
+    background-color: #fff;
+    box-shadow:1px 1px 1px 1px #f3f3f3;
 }
 .todoHeader {
     width: 100%;
@@ -34,12 +37,16 @@ p {
 #add-button {
     min-width: 60px;
     width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     border: 0px;
-    background-color: #ddd;
+    background-color: #50e3a4;
+    color: #46be8b;
+    cursor: pointer;
 }
 .tabHead {
     display: flex;
@@ -97,4 +104,7 @@ p {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+}
+.nowDate > span {
+    color: #5f6271;
 }

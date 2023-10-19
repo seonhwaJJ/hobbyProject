@@ -18,8 +18,31 @@ for (let i = 0; i<tabs.length; i++) {
     })
 }
 
-addButton.addEventListener("click", todoAdd);
+const nowClockContainer = document.querySelector(".nowDate");
+const nowClockNum = document.querySelector(".nowDate > .dayNum");
+const nowClockMonth = document.querySelector(".nowDate > .month");
+const nowClockYear = document.querySelector(".nowDate > .year");
+const nowClockText = document.querySelector(".nowDate > .dayText");
 
+function getTimer(){
+    let getTime = new Date();
+    let arrDayStr = ['SUNDAY',"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"];
+
+    nowClockNum.innerHTML = getTime.getDate();
+    nowClockMonth.innerHTML = getTime.getMonth()+1;
+    nowClockYear.innerHTML = getTime.getFullYear();
+    nowClockText.innerHTML = arrDayStr[getTime.getDay()];
+
+}getTimer();
+
+addButton.addEventListener("click", todoAdd);
+taskInput.addEventListener("Keypress", function(e){
+    if(window.e.keyCode === 13) {
+        e.preventDefault();
+        todoAdd();
+        console.log('dddd');
+    }
+});
 function todoAdd(){
     let task = {
         id : randomId(),
@@ -56,6 +79,7 @@ function render(){
         </li>`;
     }
     document.getElementById("task-area").innerHTML = resultHTML;
+
 }
 
 function toggleComplete(id){
