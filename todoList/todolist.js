@@ -35,12 +35,11 @@ function getTimer(){
 
 }getTimer();
 
-addButton.addEventListener("click", todoAdd);
-taskInput.addEventListener("Keypress", function(e){
-    if(window.e.keyCode === 13) {
-        e.preventDefault();
-        todoAdd();
-        console.log('dddd');
+addButton.addEventListener("mousedown", todoAdd);
+taskInput.addEventListener("keydown", function(event){
+    if(event.keyCode === 13) {
+        todoAdd(event);
+        console.log('ttt');
     }
 });
 function todoAdd(){
@@ -64,18 +63,20 @@ function filter(event){
 function render(){
     let resultHTML = "";
     let list = [];
+  
     if(mode == "all") {
         list = taskList;
     }else if(mode == "ing" || mode == "end") {
         list = taskList.filter(task => (mode === "ing") ? !task.isComplete : task.isComplete);
     }
+
     for (let i = 0; i < list.length; i++) {
-            resultHTML += `<li class="todoList" id="task-list">
-            <p onclick="toggleComplete('${taskList[i].id}')" class="todoCheck ${list[i].isComplete ? 'is_done' : ''}">
-                <span class="todoText">${taskList[i].taskContent}</span>
+            resultHTML += `<li class="todoList" id="task-list-${list[i].id}">
+            <p onclick="toggleComplete('${list[i].id}')" class="todoCheck ${list[i].isComplete ? 'is_done' : ''}">
+                <span class="todoText">${list[i].taskContent}</span>
                 <button type="button" class="todoDone"><i class="fa-solid ${list[i].isComplete ? 'fa-rotate-left' : 'fa-check'}"></i></button>
             </p>
-            <button type="button" onclick="deleteTask('${taskList[i].id}')" class="todoDelete"><i class="fa-solid fa-trash"></i></button>
+            <button type="button" onclick="deleteTask('${list[i].id}')" class="todoDelete"><i class="fa-solid fa-trash"></i></button>
         </li>`;
     }
     document.getElementById("task-area").innerHTML = resultHTML;
@@ -93,7 +94,7 @@ function toggleComplete(id){
 }
 function deleteTask(id){
     console.log(id);
-    resultHTML = "";
+    let resultHTML = "";
     for ( let i = 0; i<taskList.length; i++){
         if(taskList[i].id == id){
             taskList.splice(i,1);
